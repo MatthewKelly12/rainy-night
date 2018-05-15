@@ -22,11 +22,11 @@ function Line (x, y, y2, dy, dy2) {
         c.lineTo(this.x, this.y2);
         c.stroke();
 
-        if (this.y2 > innerHeight) {
-            this.y = y;
-            this.y2 = y2;
+        // if (this.y2 > innerHeight) {
+        //     this.y = y;
+        //     this.y2 = y2;
 
-        }
+        // }
 
         this.y += this.dy;
         this.y2 += this.dy2;
@@ -36,15 +36,15 @@ function Line (x, y, y2, dy, dy2) {
 
 let lineArray = [];
 
-for (let i = 0; i < 250; i++) {
-    let x = Math.random() * innerWidth;
-    let y = Math.random() * 100;
-    let y2 = y + Math.random() * 20;
-    let dy = 12;
-    let dy2 = 12;
+// for (let i = 0; i < 250; i++) {
+//     let x = Math.random() * innerWidth;
+//     let y = Math.random() * 100;
+//     let y2 = y + Math.random() * 20;
+//     let dy = 12;
+//     let dy2 = 12;
 
-    lineArray.push(new Line(x, y, y2, dy, dy2,));
-}
+//     lineArray.push(new Line(x, y, y2, dy, dy2,));
+// }
 console.log(lineArray)
 
 
@@ -55,6 +55,15 @@ function animate() {
     c.clearRect(0, 0, innerWidth, innerHeight);
     for (let i = 0; i < lineArray.length; i++) {
         lineArray[i].draw();
+    }
+    for (let i = 0; i < 10; i++) {
+        let x = Math.random() * innerWidth;
+        let y = Math.random() * 100;
+        let y2 = y + Math.random() * 20;
+        let dy = 12;
+        let dy2 = 12;
+
+        lineArray.push(new Line(x, y, y2, dy, dy2,));
     }
     c.beginPath();
     c.arc(1100, 170, 80, 0, Math.PI * 2, false);
